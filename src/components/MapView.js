@@ -31,26 +31,27 @@ function LocationMarker() {
 function MapView() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
   const center = [38.63, -76.75];
   const centralCounty = [38.8275, -76.751111];
   const northCounty = [39.019989, -76.879418];
   const innerBeltway = [38.85944, -76.889167];
   const southCounty = [38.810556, -76.946389];
-  const rural = [38.698611, -76.849167];
+  // const rural = [38.698611, -76.849167];
+  const [north, setNorth] = useState([]);
+  const [central, setCentral] = useState([]);
+  const [inner, setInner] = useState([]);
+  const [rural, setRural] = useState([]);
+  const [south, setSouth] = useState([]);
+
   useEffect(() => {
     fetch(
-      'https://api.thingspeak.com/channels/1344510/feeds.json?api_key=VJ570KKB1RMDD6NU'
+      'https://schmidt-center-dashboard.netlify.app/.netlify/functions/north'
     )
       .then((res) => res.json())
       .then(
         (result) => {
-          setIsLoaded(true);
-          setItems(result.feeds[0]);
+          setNorth(result);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           setIsLoaded(true);
           setError(error);
@@ -62,6 +63,7 @@ function MapView() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
+    console.log('North : ', north);
     return (
       <MapContainer center={center} zoom={13} scrollWheelZoom={true}>
         <TileLayer
@@ -77,8 +79,8 @@ function MapView() {
                   <h1>
                     <strong>North County</strong>
                   </h1>
-                  <h2>AQI: {items.field2}</h2>
-                  <h2>Temperature: {items.field6}F</h2>
+                  {/* <h2>AQI: {items.field2}</h2>
+                  <h2>Temperature: {items.field6}F</h2> */}
                 </div>
               </Popup>
             </Marker>
@@ -95,7 +97,7 @@ function MapView() {
             </Marker>
           </LayersControl.Overlay>
           <LayersControl.Overlay name='Rural'>
-            <Marker position={rural}>
+            {/* <Marker position={rural}>
               <Popup>
                 <div class='container mx-auto bg '>
                   <h1>
@@ -103,7 +105,7 @@ function MapView() {
                   </h1>
                 </div>
               </Popup>
-            </Marker>
+            </Marker> */}
           </LayersControl.Overlay>
           <LayersControl.Overlay name='Inner'>
             <Marker position={innerBeltway}>
