@@ -40,5 +40,6 @@
   ],
   "devDependencies": {
     "@iconify/react": "^3.1.0"
-  }
+  },
+  "proxy": "https://schmidt-center-dashboard.netlify.app"
 }

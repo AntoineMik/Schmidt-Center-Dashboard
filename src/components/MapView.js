@@ -44,6 +44,7 @@ function MapView() {
   const [south, setSouth] = useState([]);
 
   useEffect(() => {
+<<<<<<< Updated upstream
     fetch(
       'https://schmidt-center-dashboard.netlify.app/.netlify/functions/north'
     )
@@ -51,6 +52,14 @@ function MapView() {
       .then(
         (result) => {
           setNorth(result);
+=======
+    fetch('/.netlify/functions/north')
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+>>>>>>> Stashed changes
         },
         (error) => {
           setIsLoaded(true);
