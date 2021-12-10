@@ -1,11 +1,11 @@
-import { useRef } from 'react';
+//import { useRef } from 'react';
 import { useState } from 'react';
 import { render } from 'react-dom';
 
 const displayChart = require('./displayChart');
 
 export function HandleInputForm() {
-  const canvasRef = useRef(null);
+  //const canvasRef = useRef(null);
   // const canvasObj = canvasRef.current;
   // const ctx = canvasObj.getContext('2d');
   const [inputs, setInputs] = useState({
