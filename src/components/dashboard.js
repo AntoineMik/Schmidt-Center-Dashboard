@@ -1,6 +1,6 @@
 import { render } from 'react-dom';
 import React, { useEffect, useState } from 'react';
-//import Parser from "react-html-parser";
+import Parser from "html-react-parser";
 
 const displayChart = require('./displayChart');
 
@@ -165,7 +165,7 @@ export default function HandleInputForm () {
               onChange={handleChange}
               required
             >
-              {result }
+              {Parser(result)}
             </select><br></br>
             <label htmlFor='sensor-id2' className='pr-2 font-medium'> Second Sensor ID (optional): </label>
             <select
