@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 const navigation = [
   { name: 'Home', href: '/', current: false },
   { name: 'Map', href: '/Map', current: false },
-  { name: 'Dashboard', href: '/Dashboard', current: false },
-  { name: 'Reports', href: '/Reports', current: false }
+  { name: 'Dashboard', href: '/Dashboard', current: false }
 ];
 
 function classNames(...classes) {
@@ -44,21 +43,6 @@ function NavBar() {
                       </Link>
                     ))}
                   </div>
-                </div>
-              </div>
-              <div className='hidden md:block'>
-                <div className='ml-4 flex items-center md:ml-6'>
-                  <button
-                    type='button'
-                    className='bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
-                  >
-                    <span className='sr-only'>View notifications</span>
-                    <Icon
-                      icon='heroicons-outline:bell'
-                      className='h-6 w-6'
-                      aria-hidden='true'
-                    />
-                  </button>
                 </div>
               </div>
               <div className='-mr-2 flex md:hidden'>
